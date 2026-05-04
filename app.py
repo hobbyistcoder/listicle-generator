@@ -6,8 +6,9 @@ import json
 from openai import OpenAI
 
 # ── CONFIG ──────────────────────────────────────────────────────────────────
-OPENAI_API_KEY = "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"   # ← replace with Zuddl key
-SERPER_API_KEY = "42d88acfd41c33b04098846d5c7f4c5ad6d01bca"   # ← replace with key from serper.dev
+import os
+OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", "")
+SERPER_API_KEY = os.environ.get("SERPER_API_KEY", "")
 
 client = OpenAI(api_key=OPENAI_API_KEY)
 
