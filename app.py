@@ -7,8 +7,12 @@ from openai import OpenAI
 
 # ── CONFIG ──────────────────────────────────────────────────────────────────
 import os
-OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", "")
-SERPER_API_KEY = os.environ.get("SERPER_API_KEY", "")
+try:
+    OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
+    SERPER_API_KEY = st.secrets["SERPER_API_KEY"]
+except:
+    OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", "")
+    SERPER_API_KEY = os.environ.get("SERPER_API_KEY", "")
 
 client = OpenAI(api_key=OPENAI_API_KEY)
 
